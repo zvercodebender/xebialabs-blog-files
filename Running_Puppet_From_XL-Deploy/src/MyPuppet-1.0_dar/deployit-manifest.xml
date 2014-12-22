@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<udm.DeploymentPackage version="1.0" application="MyPuppet">
+  <orchestrator />
+  <satisfiesReleaseNotes>false</satisfiesReleaseNotes>
+  <satisfiesPerformanceTested>false</satisfiesPerformanceTested>
+  <deployables>
+    <puppet.Manifest name="myManifest.pp" file="myManifest.pp/myTestFile.pp">
+      <tags />
+      <scanPlaceholders>true</scanPlaceholders>
+      <checksum>c2115adf8dee639334c2578631b55291b8ae2df2</checksum>
+    </puppet.Manifest>
+  </deployables>
+</udm.DeploymentPackage>
