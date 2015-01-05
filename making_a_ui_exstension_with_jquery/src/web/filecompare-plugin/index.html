@@ -1,0 +1,26 @@
+<html>
+<header>
+   <title>CI Comarison</title>
+</header>
+<body>
+   <script type='text/javascript' src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+   <!-- script type='text/javascript' src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script -->
+   <script type='text/javascript' src="/filecompare-plugin/js/index.js"></script>
+<!-- ********************************************************************* -->
+<div id='head'>
+<form action="">
+   <input type='button' name='reload' onClick='initForms();' value='Reload' />
+   <input type='radio' name='diffcmd' value='diff2repo' onClick='toggleForms("diff2repo");' checked>Diff to Repo</input>
+   <input type='radio' name='diffcmd' value='diff2host' onClick='toggleForms("diff2host");'>Diff to Host</input>
+</form>
+</div>
+<div id='diff2repo'>
+Diff repo and host
+</div>
+<div id='diff2hosts'>
+Diff hostA and hostB
+</div>
+<div id='results'></div>
+</body>
+</html>
+

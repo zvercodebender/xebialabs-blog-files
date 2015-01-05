@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="https://code.angularjs.org/1.2.9/angular.min.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body ng-app="myRepo" ng-controller="RepoController" class="ng-cloak">
+<div class="content">
+
+
+    <h3>
+        <a ng-click="loadCis()" href="#" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-refresh"></i> Reload CIs</a>
+        The current root
+
+        <select ng-model="activeRoot" ng-change="loadCis()">
+            <option>Applications</option>
+            <option>Environments</option>
+            <option>Infrastructure</option>
+            <option>Configuration</option>
+        </select>
+    </h3>
+
+
+    <h4 ng-if="resultCis && !resultCis.length"><i>...is currently empty. Please create some CIs folder and click reload.</i></h4>
+
+    <table ng-if="resultCis.length" class="table table-striped">
+        <tr>
+            <th>ID</th>
+            <th>Type</th>
+        </tr>
+        <tr ng-repeat="ci in resultCis">
+            <td>{{ci.id}}</td>
+            <td>{{ci.type}}</td>
+        </tr>
+    </table>
+
+</div>
+
+</body>
+</html>
