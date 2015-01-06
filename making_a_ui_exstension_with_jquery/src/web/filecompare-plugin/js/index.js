@@ -1,4 +1,5 @@
 
+var auth = "";
 //*************************************************************
 //*  Toggle Input Forms
 function toggleForms( divName ) {
@@ -28,14 +29,17 @@ function initForms() {
 function compare2repo() {
    deployed = $( "#deployed" ).val();
    alert( "deployed ID = " + deployed );
-   var REQUEST="/api/extension/filecompare/compare/to/repo/" + deployed;
-   REQUEST="/api/extension/test/cis";
+   var REQUEST="/api/extension/filecompare/compare/to/repo";
+   //REQUEST="/api/extension/test/cis";
    $.ajax({
       url: REQUEST,
       type: "GET",
-      dataType: "json",
+      dataType: "text",
       async: false,
       data: { root: "Environments" },
+      beforeSend: function(req) {
+         req.setRequestHeader('Authorization', auth );
+      },
       success: function( response, status, xmlData ) {
          xml = response;
          alert( xml );
@@ -79,6 +83,7 @@ function getDeployedApplicationList() {
 //*************************************************************
 //*   INIT Function
 $(document).ready( function() {
+   auth = window.self.content.getAuthToken();
    initForms();
    console.log('Init JQuery');
 });
