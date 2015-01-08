@@ -16,5 +16,9 @@
     <endpoint path="/filecompare/compare/between/servers" 
               method="GET" 
               script="ui_rest_interface/compare_installed_files.py" />
+
+    <endpoint path="/filecompare/test/repo" 
+              method="GET" 
+              script="ui_rest_interface/test_files.py" />
 </endpoints>
 

@@ -1,5 +1,6 @@
 from __future__ import with_statement
 import sys
+import os
 import com.xebialabs.deployit.plugin.api.udm.Parameters
 from overtherepy import OverthereHostSession, StringUtils
 
@@ -17,6 +18,7 @@ def TEST( deployed ):
 
        logger.error("dtype = " + dtype)
        if dtype == "file.DeployedFile" or dtype == "file.Folder":
+           
            logger.error("Found a file object we can diff")
            if dtype == "file.DeployedFile":
                logger.error("Deal with files")
