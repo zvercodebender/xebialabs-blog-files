@@ -11,6 +11,12 @@ def help() :
    print "  --app -a           A pattern to search for in the application name"
 # End def
 
+def log( outstr ) :
+   global verbose
+   
+   if verbose : print outstr
+# End def
+
 try:
    optList, argList = getopt.getopt(sys.argv[1:], 'vf:a:', ['verbose', 'folder=', 'app='])
 except getopt.GetoptError, err:
@@ -25,20 +31,19 @@ for opt, arg in optList:
    if verbose : print opt + " = " + arg
    if opt == '--folder'  or opt == '-f' :
        folder = folder + arg
-       if verbose : print "Looking for deployed apps in " + folder
+       log( "Looking for deployed apps in " + folder )
    # End if
    if opt == '--app' or opt == '-a' :
        appName = "Environments.*/.*" + arg
-       if verbose : print "Looking for app named " + appName
+       log( "Looking for app named " + appName )
    # End if
    if opt == '--verbose' or opt == '-v' :
        verbose = 1
-       print "DEBUG On"
+       log( "DEBUG On" )
    # End if
 # End for
 
 depApp = repository.search("udm.DeployedApplication")
-if verbose : print "DEBUG is on"
 
 for app in depApp:
    if re.match( folder, app ) :
