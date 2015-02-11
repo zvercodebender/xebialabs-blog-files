@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<synthetic xsi:schemaLocation="http://www.xebialabs.com/deployit/synthetic/synthetic.xsd" 
+           xmlns="http://www.xebialabs.com/deployit/synthetic" 
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+<!-- For deploying/undeploying the files, and executing script with all of commands  -->
+  <type type="emc.AflCpModule" extends="generic.ExecutedScriptWithDerivedArtifact" 
+        deployable-type="emc.AflCopyFile" 
+        container-type="emc.FileCopyContainer">
+    <generate-deployable type="emc.AflCopyFile" extends="generic.File" />
+    <property name="createScript" default="emc/file/upload-scripts.sh" hidden="true" />
+    <property name="destroyScript" default="emc/file/rollback-scripts.sh" hidden="true"  />
+    <property name="source" default="{{SOURCE_ENV}}" required="true" hidden="false"  />
+    <property name="group" default="{{PROJECT_NAME}}" required="true" hidden="false"  />
+    <property name="log_directory" default="{{LOG_DIRECTORY}}" required="true" hidden="false"  />
+  </type>
+</synthetic>
