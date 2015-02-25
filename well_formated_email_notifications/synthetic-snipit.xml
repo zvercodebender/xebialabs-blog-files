@@ -1,0 +1,33 @@
+<type-modification type="udm.Environment">
+   <property name="requiresReleaseNotes" kind="boolean" required="false" category="Deployment Checklist"
+             description="Release notes are required" />
+   <property name="requiresPerformanceTested" kind="boolean" required="false" category="Deployment Checklist"
+             description="Performance testing is required" />
+   <property name="requiresBusinessSignoff" kind="boolean" required="false" category="Deployment Checklist"
+             description="Business owner authorizing deployment is required" />
+   <property name="requiresChangeTicket"     kind="boolean" required="false" category="Deployment Checklist"
+             description="A change ticket (chg.ChangeTicket) mapped to a change management server is required as part of the deployment"/>
+   <property name="requiresChangeTicketQA"   kind="boolean" required="false" category="Deployment Checklist"
+             description="A change ticket (chg.ChangeTicket) mapped to a change management server is required as part of the deployment"/>
+   <property name="requiresChangeTicketPROD" kind="boolean" required="false" category="Deployment Checklist"
+             description="A change ticket (chg.ChangeTicket) mapped to a change management server is required as part of the deployment"/>
+   <property name="requiresChangeTicketNumber"     kind="boolean" required="false" category="Deployment Checklist"
+             description="A change ticket (chg.ChangeTicket) mapped to a change management server is required as part of the deployment"/>
+</type-modification>
+
+<type-modification type="udm.Version">
+   <property name="satisfiesReleaseNotes" kind="boolean" required="false" category="Deployment Checklist" label="Does the package contain release notes?"
+             description="Indicates the package contains release notes" />
+   <property name="satisfiesPerformanceTested" kind="boolean" required="false" category="Deployment Checklist" label="Have performance tests been performed?"
+             description="Indicates the package has been performance tested" />
+   <property name="satisfiesBusinessSignoff" kind="string" required="false" category="Deployment Checklist" label="Enter the name or ID of the approving business owner"
+             description="Indicates the business owner or manager authorizing deployment to production" />
+   <property name="satisfiesChangeTicket"       kind="string" required="false" category="Deployment Checklist" label="Enter MASTER CC Number"
+             description="Master Change #" />
+   <property name="satisfiesChangeTicketQA"     kind="string" required="false" category="Deployment Checklist" label="Enter QA CC Number"
+             description="QA Change #"     />
+   <property name="satisfiesChangeTicketPROD"   kind="string" required="false" category="Deployment Checklist" label="Enter PROD CC Number"
+             description="PROD Change #"   />
+   <property name="satisfiesChangeTicketNumber" kind="string" required="false" category="Deployment Checklist" label="Enter MASTER CC Number"
+             description="Master Change #" />
+</type-modification>

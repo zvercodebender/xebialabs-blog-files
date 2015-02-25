@@ -1,0 +1,84 @@
+<html>
+<head>
+<style type="text/css">
+p {
+font-family: verdana,arial,sans-serif;
+font-size:14px;
+}
+table.gridtable {
+font-family: verdana,arial,sans-serif;
+font-size:11px;
+color:#333333;
+border-width: 1px;
+border-color: #666666;
+border-collapse: collapse;
+}
+table.gridtable th {
+border-width: 1px;
+padding: 8px;
+border-style: solid;
+border-color: #666666;
+background-color: #dedede;
+}
+table.gridtable td {
+border-width: 1px;
+padding: 8px;
+border-style: solid;
+border-color: #666666;
+background-color: #ffffff;
+}
+</style>
+</head>
+<body>
+<p><b><i>${task.description}</i></b> to <b><i>${deployedApplication.environment.name}</i></b> has Failed.</p>
+
+<#if deployedApplication.version.satisfiesChangeTicketNumber?? >
+<table class='gridtable'>
+   <tr>
+     <th align='left' bgcolor='lightgrey'>Change</th>
+     <td align='right'>${deployedApplication.version.satisfiesChangeTicketNumber}</td>
+   </tr>
+   <#if deployedApplication.version.satisfiesChangeTaskNumberQA?? >
+   <tr>
+     <th align='left' bgcolor='lightgrey'>QA Task</th>
+     <td align='right'>${deployedApplication.version.satisfiesChangeTaskNumberQA}</td>
+   </tr>
+   </#if>
+   <#if deployedApplication.version.satisfiesChangeTaskNumberPROD?? >
+   <tr>
+     <th align='left' bgcolor='lightgrey'>PROD Task</th>
+     <td align='right'>${deployedApplication.version.satisfiesChangeTaskNumberPROD}</td>
+   </tr>
+   </#if>
+</table>
+</#if>
+
+<p>Deployment started at ${task.startDate} <#if (task.completionDate)?? > and completed at ${task.completionDate}<#else> and didn't complete</#if>.</p>
+
+<table class='gridtable'>
+   <tr>
+     <th bgcolor='lightgrey'>Step</th>
+     <th bgcolor='lightgrey'>Start/End Time</th>
+     <th bgcolor='lightgrey'>Status</th>
+   </tr>
+   <#list task.steps as stepInfo>
+   <tr>
+       <td> Step "${stepInfo.description}"</td>
+       <#if (stepInfo.startDate)??> 
+          <td>${stepInfo.startDate} <br> ${stepInfo.completionDate}</td> 
+          <td>${stepInfo.state}</td>
+       </tr>
+       <tr>
+          <th bgcolor='lightgrey' colspan='3'> Logs:</th>
+       </tr>
+       <tr>
+          <td colspan='3'>${stepInfo.log}</td>
+       <#else>
+          <td colspan='2'> yet to start.</td>
+       </#if>
+   </tr>
+   </#list>
+</table>
+
+    Please look into the build failure immediately.
+

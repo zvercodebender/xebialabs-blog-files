@@ -1,16 +1,3 @@
-def getContainerListFromDeltas(deltas):
-    print "START: getContainerList"
-    containers = {}
-    # Get our deployed containers
-    for delta in deltas.deltas:
-        delta_op = str(delta.operation)
-        deployed = delta.previous if delta_op == "DESTROY" else delta.deployed
-        container = deployed.container
-        if len( container.host.tags ) > 0 :
-           containers[container.host] = container
-    print "END  : getContainerList"
-    return [containers[ke] for ke in containers.keys()]
-
 def getDeploymentGroup():
     print "======================================================================================="
     print "START: getDeploymentGroup"
@@ -74,6 +61,5 @@ def update_hosts(containers, context):
             # End if
     print "END  : update_hosts"
 # End def
-#update_hosts( getContainerListFromDeltas( deltas ), context )
 update_hosts( getContainerListFromDeployedApplication(), context )
 
