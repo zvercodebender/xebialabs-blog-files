@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script src="js/authentication.js"></script>
+<script src="js/xld-tasks.js"></script>
+</head>
+<body>
+
+<!-- =============================================== -->
+<div data-role="page" id="login">
+  <div data-role="header">
+    <h1>Welcome To XL Deploy Task Monitor</h1>
+  </div>
+  <div data-role="main" class="ui-content">
+   <p>login form</p>
+   <form method="post" id="loginForm">
+       <label for="myUsername">Username:</label>
+       <input name="myUsername" id="myUsername" value="" type="text">
+       <label for="myPassword">Password:</label>
+       <input name="myPassword" id="myPassword" value="" type="password">
+   </form>
+   <button class="ui-btn ui-corner-all" onClick="authenticate();">Login</button>
+   <a href="#home" class="ui-btn ui-corner-all">Task List</a>
+  </div>
+</div>
+<!-- =============================================== -->
+<div data-role="page" id="home">
+  <div data-role="header">
+    <h1>Welcome To XL Deploy Task Monitor</h1>
+  </div>
+
+  <div data-role="main" class="ui-content">
+    <div id="taskList" data-role="collapsibleset" "data-content-theme="a" data-iconpos='right'>
+    </div>
+    <button onClick='getAllTasks();' class="ui-btn">Load Details</button>
+  </div>
+
+</div>
+<!-- =============================================== -->
+<script>
+$(document).ready(function(){
+});
+</script>
+</body>
+</html>
+
