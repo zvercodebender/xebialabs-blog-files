@@ -1,3 +1,4 @@
+
 import os
 import java.lang.System as System
 import java.io.FileInputStream as FileInputStream
@@ -20,3 +21,5 @@ def connectToAdminServer():
     password = os.getenv('DEPLOYIT_WLST_PASSWORD')
     print "Connecting to WebLogic %s as user %s" %(url, user)
     connect(user, password, url)
+
+

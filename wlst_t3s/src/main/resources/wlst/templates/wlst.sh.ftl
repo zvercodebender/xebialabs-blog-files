@@ -19,3 +19,5 @@ if [ $res != 0 ] ; then
 	exit $res
 fi
 rm /tmp/wlst.properties
+
+
