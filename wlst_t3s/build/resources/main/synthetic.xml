@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<synthetic xsi:schemaLocation="http://www.xebialabs.com/deployit/synthetic synthetic.xsd" xmlns="http://www.xebialabs.com/deployit/synthetic" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+<!--
+#######################################################################################################
+    THIS CODE AND INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS
+    FOR A PARTICULAR PURPOSE. THIS CODE AND INFORMATION ARE NOT SUPPORTED BY XEBIALABS.
+#######################################################################################################
+-->
+
+<type-modification type="wls.Domain">
+	<property name="customWlstTemplatePath" required="false" hidden="true" default="wlst/templates"/>
+	<property name="libraryScripts" kind="list_of_string" required="false" hidden="true" default="wlst/runtime/connect.py"/>
+        <property name="wlstProperties" kind="list_of_string" inspectionProperty="true" 
+                  default="weblogic.security.TrustKeyStore=CustomTrust,weblogic.security.CustomTrustKeyStoreFileName=truststore,weblogic.security.SSL.enableJSSE=true,weblogic.security.SSL.ignoreHostnameVerification=true,weblogic.security.SSL.enforceConstraints=off" />
+</type-modification>
+
+</synthetic>
